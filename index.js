@@ -17,7 +17,7 @@ function fetch_data() {
 
         })
         .catch(error => {
-            document.getElementById("marquee").innerHTML = PlaceholderText;
+            document.getElementById("marquee").innerHTML = placeholder;
             console.error(error)
         }
         )
