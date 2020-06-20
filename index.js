@@ -1,6 +1,6 @@
 
 function fetch_data() {
-    let data = fetch('https://spreadsheets.google.com/feeds/cells/' + GoogleSheetID + '/1/public/full?alt=json')
+    let data = fetch('https://spreadsheets.google.com/feeds/cells/' + id + '/1/public/full?alt=json')
         .then(response => response.json())
         .then(data => {
 
@@ -24,7 +24,22 @@ function fetch_data() {
 
 }
 
-document.getElementById("marquee").innerHTML = PlaceholderText;
+function parse_params() {
+
+    if ((window.location.search).includes("?")) {
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        for (const key of urlParams.keys()) {
+            window[key] = urlParams.get(key);
+        }
+    }
+}
+
+parse_params();
+
+document.getElementById("marquee").innerHTML = placeholder;
+
 fetch_data();
 
 window.setInterval(fetch_data, 1000);
