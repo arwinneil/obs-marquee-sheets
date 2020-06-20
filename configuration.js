@@ -1,0 +1,2 @@
+let GoogleSheetID = "";
+let PlaceholderText = "";
